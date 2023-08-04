@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!-- css  -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- bootstrap  -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <div class="div">
+    <img src="img.png" alt="" class="img-fluid">
+
+    <div class="text">
+      <span class="text">Fill in your details & start constructing your dream home</span>
+    </div>
+
+    <div class="input-conrol">
+      <form action="">
+        <div class="row g-3 ms-3 me-4 mt-4">
+          <div class="col-md-6 sm-12">
+            <label for="">First name</label><span class="star">*</span>
+            <input type="text" class="mt-2 form-control" id="firstname">
+            <label id="error1">Please complete this required field.</label>
+          </div>
+
+          <div class="col-md-6 sm-12">
+            <label for="">last name</label><span class="star">*</span>
+            <input type="text" class="mt-2 form-control" id="lastname">
+            <label id="error2">Please complete this required field.</label>
+          </div>
+
+          <div class="col-md-6 sm-12">
+            <label for="">Email</label><span class="star">*</span>
+            <input type="text" class="mt-2 form-control" id="email">
+            <label id="error3">Please complete this required field.</label>
+          </div>
+
+          <div class="col-md-6 sm-12">
+            <label for="">phone number</label><span class="star">*</span>
+            <input type="text" class="mt-2 form-control" id="phone">
+            <label id="error4">Please complete this required field.</label>
+          </div>
+
+          <div class="col-md-6 sm-12">
+            <label for="">do you have/own a plot?</label><span class="star">*</span>
+            <select name="" id="inputstate1" class="mt-2 form-select">
+              <option value="" selected>Please select</option>
+              <option value="">Yes</option>
+              <option value="">No</option>
+            </select>
+            <label id="error5">Please select an option from the dropdown menu.</label>
+          </div>
+
+          <div class="col-md-6 sm-12">
+            <label for="">Where are you planning to build your home?</label><span class="star">*</span>
+            <select name="" id="inputstate2" class="mt-2 form-select">
+              <option value="" selected>Please select</option>
+              <option value="">Kerala</option>
+              <option value="">Telangana</option>
+              <option value="">Karnataka</option>
+              <option value="">Tamil nadu</option>
+            </select>
+            <label id="error6">Please select an option from the dropdown menu.</label>
+          </div>
+
+          <div class="col-md-6 sm-12">
+            <label for="">When are you planning to start your construction?</label><span class="star">*</span>
+            <select name="" id="inputstate3" class="mt-2 form-select">
+              <option value="" selected>Please select</option>
+              <option value="">Immediately</option>
+              <option value="">In 3 Months</option>
+              <option value="">In 6 Months</option>
+              <option value="">More than 6 Months</option>
+            </select>
+            <label id="error7">Please select an option from the dropdown menu.</label>
+          </div>
+
+          <div class="col-md-6 sm-12">
+            <label for="">Choose your budget range</label><span class="star">*</span>
+            <select id="inputstate4" name="" class="mt-2 form-select">
+              <option value="" selected>Please select</option>
+              <option value="">40-75 Lakhs </option>
+              <option value="">75 Lakhs -1 Crore </option>
+              <option value="">1 Crore & Above</option>
+            </select>
+            <label id="error8">Please select an option from the dropdown menu.</label>
+          </div>
+
+          <label id="error9">Please complete all required fields.</label>
+
+          <div class="col-12 mt-4">
+            <button type="button" id="subtn" class="btn">Submit</button>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+  <!-- bootstrap --->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+<script>
+
+  $("document").ready(function () {
+    $("#firstname").blur(function () {
+      let fname = $(this).val()
+
+      if (fname.length < 5 || fname === "") {
+        $(this).css('border-color', 'red');
+        $("#error1").show()
+      }
+      else {
+        $("#error1").hide()
+        $(this).css('border-color', 'green');
+      }
+    })
+    $("#lastname").blur(function () {
+      var lname = $(this).val()
+      if (lname.length < 5 || lname === "") {
+        $(this).css('border-color', 'red');
+        $("#error2").show()
+
+      }
+      else {
+        $("#error2").hide()
+        $(this).css('border-color', 'green');
+      }
+    })
+
+    $("#email").blur(function () {
+      var email = $(this).val()
+      if (email.length < 6 || email === "") {
+        $(this).css('border-color', 'red');
+        $("#error3").show()
+      }
+      else {
+        $("#error3").hide()
+        $(this).css('border-color', 'green');
+      }
+    })
+    $("#phone").blur(function () {
+      var phone = $(this).val()
+
+      if (phone.length < 10 || password === "" || phone.length > 10) {
+        $(this).css('border-color', 'red');
+        $("#error4").show()
+      }
+
+      else {
+        $("#error4").hide()
+        $(this).css('border-color', 'green');
+      }
+    })
+
+
+    $("#inputstate1").blur(function () {
+      var input1 = $(this).val()
+
+      if (input1 === '') {
+        $(this).css('border-color', 'red')
+        $("#error5").show()
+      }
+
+      else {
+        $("#error5").hide()
+        $(this).css('border-color', 'green')
+      }
+
+    })
+
+
+    $("#inputstate2").blur(function () {
+      var input2 = $(this).val()
+
+      if (input2 === "") {
+        $(this).css('border-color', 'red');
+        $("#error6").show()
+      }
+
+      else {
+        $("#error6").hide()
+        $(this).css('border-color', 'green');
+      }
+
+    })
+
+
+    $("#inpustate3").blur(function () {
+      var input3 = $(this).val()
+
+      if (input3 === "") {
+        $(this).css('border-color', 'red');
+        $("#error7").show()
+      }
+
+      else {
+        $("#error7").hide()
+        $(this).css('border-color', 'green');
+      }
+    })
+
+
+    $("#inpustate4").blur(function () {
+      var input4 = $(this).val()
+
+      if (input4 === "") {
+        $(this).css('border-color', 'red');
+        $("#error8").show()
+      }
+
+      else {
+        $("#error8").hide()
+        $(this).css('border-color', 'green');
+      }
+    })
+
+
+    $("#subtn").click(function () {
+      var fname = $("#firstname").val()
+      var lname = $("#lastname").val()
+      var email = $("#email").val()
+      var phone = $("#phone").val()
+      var input1 = $("#inputstate1").val()
+      var input2 = $("#inputstate2").val()
+      var input3 = $("#inputstate3").val()
+      var input4 = $("#inputstate4").val()
+
+      if (fname === "" || lname === "" || email === "" || no === "" || plot === "Please Select" || plan === "Please Select" || start === "Please Select" || budget === "Please Select") {
+        $("#error9").show()
+      } else {
+        $("#submit9").hide()
+      }
+
+      if (fname.length < 5 && fname === "") {
+        $("#error1").show()
+        $("#firstname").css('border-color', 'red');
+      }
+      else {
+        $("#firstname").css("border-color", "#cbd6e2").show()
+        $("#error1").hide()
+      }
+      if (lname.length < 5 && lname === "") {
+        $("#error2").show()
+        $("#lastname").css('border-color', 'red');
+      }
+      else {
+        $("#lastname").css("border-color", "#cbd6e2").show()
+        $("#error2").hide()
+      }
+
+      if (email.length < 6 || email === "") {
+        $("#error3").show()
+        $("#email").css('border-color', 'red');
+      }
+      else {
+        $("#email").css("border-color", "#cbd6e2").show()
+        $("#error3").hide()
+      }
+
+      if (phone.length < 10 || phone === "" || phone.length > 10) {
+
+        $("#error4").show()
+        $("#phone").css('border-color', 'red');
+      }
+      else {
+        $("#phone").css("border-color", "#cbd6e2").show()
+        $("#error4").hide()
+      }
+
+      if (input1 === '') {
+        $("#error5").show()
+        $("#inputstate1").css('border-color', 'red');
+      }
+      else {
+        $("#inputstate1").css("border-color", "#cbd6e2").show()
+        $("#error5").hide()
+      }
+
+      if (input2 === '') {
+        $("#error6").show()
+        $("#inputstate2").css('border-color', 'red');
+      }
+      else {
+        $("#inputstate2").css("border-color", "#cbd6e2").show()
+        $("#error6").hide()
+      }
+
+      if (input3 === '') {
+        $("#error7").show()
+        $("#inputstate3").css('border-color', 'red');
+      }
+      else {
+        $("#inputstate3").css("border-color", "#cbd6e2").show()
+        $("#error7").hide()
+      }
+
+      if (input4 === '') {
+        $("#error8").show()
+        $("#inputstate4").css('border-color', 'red');
+      }
+      else {
+        $("#inputstate4").css("border-color", "#cbd6e2").show()
+        $("#error8").hide()
+      }
+
+
+    })
+  })
+
+</script>
+
+
+</html>
